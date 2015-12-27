@@ -18,6 +18,8 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
+        //GENERIC ADAPTER
+        maven { url 'https://dl.bintray.com/lucasfm/maven/' }
     }
 }
 
