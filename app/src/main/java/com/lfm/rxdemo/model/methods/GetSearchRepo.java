@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.lfm.rxdemo.model.Repositories;
+import com.lfm.rxdemo.model.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ public class GetSearchRepo {
     @JsonProperty("incomplete_results")
     private Boolean incompleteResults;
     @JsonProperty("items")
-    private List<Repositories> repositories = new ArrayList<Repositories>();
+    private List<Repository> repositories = new ArrayList<Repository>();
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -66,7 +66,7 @@ public class GetSearchRepo {
      * @return The items
      */
     @JsonProperty("items")
-    public List<Repositories> getRepositories() {
+    public List<Repository> getRepositories() {
         return repositories;
     }
 
@@ -74,7 +74,7 @@ public class GetSearchRepo {
      * @param repositories The items
      */
     @JsonProperty("items")
-    public void setRepositories(List<Repositories> repositories) {
+    public void setRepositories(List<Repository> repositories) {
         this.repositories = repositories;
     }
 

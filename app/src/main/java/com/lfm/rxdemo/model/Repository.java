@@ -81,7 +81,7 @@ import java.util.Map;
         "default_branch",
         "score"
 })
-public class Repositories {
+public class Repository {
 
     @JsonProperty("id")
     private Integer id;

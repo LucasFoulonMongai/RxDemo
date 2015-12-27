@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 
 import com.lfm.rvgenadapter.ItemPresenter;
 import com.lfm.rxdemo.R;
-import com.lfm.rxdemo.model.Repositories;
+import com.lfm.rxdemo.model.Repository;
 
 import butterknife.ButterKnife;
 
 /**
  * Created by mogwai on 27/12/2015.
  */
-public class ItemRepoPresenter extends ItemPresenter<Repositories> {
+public class ItemRepoPresenter extends ItemPresenter<Repository> {
 
     private View view;
 
@@ -38,7 +38,7 @@ public class ItemRepoPresenter extends ItemPresenter<Repositories> {
             return;
         }
 
-        Repositories data = getData();
+        Repository data = getData();
         view.setTag(R.id.tag_content, data);
         view.setTag(R.id.tag_position, getPosition());
 

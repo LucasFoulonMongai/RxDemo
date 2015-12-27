@@ -1,6 +1,6 @@
 package com.lfm.rxdemo.model.light;
 
-import com.lfm.rxdemo.model.Repositories;
+import com.lfm.rxdemo.model.Repository;
 import com.lfm.rxdemo.model.User;
 
 /**
@@ -13,11 +13,11 @@ public class RepoItemLight {
     private final String ownerImage;
     private final String owerName;
 
-    public RepoItemLight(Repositories repositories) {
-        this.repoId = repositories.getId();
-        this.repoName = repositories.getName();
-        this.repoUrl = repositories.getUrl();
-        User owner = repositories.getOwner();
+    public RepoItemLight(Repository repository) {
+        this.repoId = repository.getId();
+        this.repoName = repository.getName();
+        this.repoUrl = repository.getUrl();
+        User owner = repository.getOwner();
         this.ownerImage = owner.getAvatarUrl();
         this.owerName = owner.getLogin();
     }

@@ -1,6 +1,6 @@
 package com.lfm.rxdemo.presenter.contract;
 
-import com.lfm.rxdemo.model.Repositories;
+import com.lfm.rxdemo.model.Repository;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface SearchContract {
 
-    void showResults(List<Repositories> repositoriesList);
+    void showResults(List<Repository> repositoryList);
 }

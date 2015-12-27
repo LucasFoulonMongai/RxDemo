@@ -12,7 +12,7 @@ import android.widget.EditText;
 import com.lfm.rvgenadapter.GenericRecyclerAdapter;
 import com.lfm.rxdemo.R;
 import com.lfm.rxdemo.itempresenter.ItemRepoPresenter;
-import com.lfm.rxdemo.model.Repositories;
+import com.lfm.rxdemo.model.Repository;
 import com.lfm.rxdemo.presenter.SearchPresenter;
 import com.lfm.rxdemo.presenter.contract.SearchContract;
 
@@ -31,7 +31,7 @@ public class SearchFragment extends Fragment implements SearchContract {
     RecyclerView searchList;
 
     private SearchPresenter searchPresenter;
-    private GenericRecyclerAdapter<Repositories> searchAdapter;
+    private GenericRecyclerAdapter<Repository> searchAdapter;
 
     public SearchFragment() {
     }
@@ -52,7 +52,7 @@ public class SearchFragment extends Fragment implements SearchContract {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        searchAdapter = new GenericRecyclerAdapter<Repositories>(getContext(), new ArrayList<>(), ItemRepoPresenter.class);
+        searchAdapter = new GenericRecyclerAdapter<Repository>(getContext(), new ArrayList<>(), ItemRepoPresenter.class);
         searchList.setAdapter(searchAdapter);
         searchList.setLayoutManager(new LinearLayoutManager(getContext()));
         searchPresenter = new SearchPresenter(this);
@@ -64,8 +64,8 @@ public class SearchFragment extends Fragment implements SearchContract {
     }
 
     @Override
-    public void showResults(List<Repositories> repositoriesList) {
-        searchAdapter.setItems(repositoriesList);
+    public void showResults(List<Repository> repositoryList) {
+        searchAdapter.setItems(repositoryList);
     }
 
     @Override
