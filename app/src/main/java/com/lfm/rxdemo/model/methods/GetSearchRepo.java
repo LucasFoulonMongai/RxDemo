@@ -1,4 +1,4 @@
-package com.lfm.rxdemo.model;
+package com.lfm.rxdemo.model.methods;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.lfm.rxdemo.model.Repositories;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,14 +19,14 @@ import java.util.Map;
         "incomplete_results",
         "items"
 })
-public class GetSearch {
+public class GetSearchRepo {
 
     @JsonProperty("total_count")
     private Integer totalCount;
     @JsonProperty("incomplete_results")
     private Boolean incompleteResults;
     @JsonProperty("items")
-    private List<Item> items = new ArrayList<Item>();
+    private List<Repositories> repositories = new ArrayList<Repositories>();
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -65,16 +66,16 @@ public class GetSearch {
      * @return The items
      */
     @JsonProperty("items")
-    public List<Item> getItems() {
-        return items;
+    public List<Repositories> getRepositories() {
+        return repositories;
     }
 
     /**
-     * @param items The items
+     * @param repositories The items
      */
     @JsonProperty("items")
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void setRepositories(List<Repositories> repositories) {
+        this.repositories = repositories;
     }
 
     @JsonAnyGetter

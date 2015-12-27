@@ -81,7 +81,7 @@ import java.util.Map;
         "default_branch",
         "score"
 })
-public class Item {
+public class Repositories {
 
     @JsonProperty("id")
     private Integer id;
@@ -90,7 +90,7 @@ public class Item {
     @JsonProperty("full_name")
     private String fullName;
     @JsonProperty("owner")
-    private Owner owner;
+    private User owner;
     @JsonProperty("private")
     private Boolean _private;
     @JsonProperty("html_url")
@@ -274,7 +274,7 @@ public class Item {
      * @return The owner
      */
     @JsonProperty("owner")
-    public Owner getOwner() {
+    public User getOwner() {
         return owner;
     }
 
@@ -282,7 +282,7 @@ public class Item {
      * @param owner The owner
      */
     @JsonProperty("owner")
-    public void setOwner(Owner owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
     }
 

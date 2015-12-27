@@ -1,13 +1,13 @@
 package com.lfm.rxdemo.api;
 
-import com.lfm.rxdemo.model.GetSearch;
+import com.lfm.rxdemo.model.methods.GetSearchRepo;
 
 import retrofit.http.Field;
 import retrofit.http.GET;
 import rx.Observable;
 
-public interface ApiService {
+public interface GithubService {
 
     @GET("/search/repositories?q=?q={search}")
-    Observable<GetSearch> getSearch(@Field("search") String search);
+    Observable<GetSearchRepo> getSearch(@Field("search") String search);
 }
