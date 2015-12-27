@@ -3,7 +3,6 @@ package com.lfm.rxdemo.manager;
 import android.content.Context;
 
 import com.lfm.rxdemo.api.ApiService;
-import com.lfm.rxdemo.model.GetSearch;
 import com.lfm.rxdemo.util.Constants;
 
 import retrofit.Retrofit;

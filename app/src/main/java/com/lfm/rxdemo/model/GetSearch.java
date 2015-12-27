@@ -14,48 +14,67 @@ import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "total",
-        "r"
+        "total_count",
+        "incomplete_results",
+        "items"
 })
 public class GetSearch {
 
-    @JsonProperty("total")
-    private Integer total;
-    @JsonProperty("r")
-    private List<R> r = new ArrayList<R>();
+    @JsonProperty("total_count")
+    private Integer totalCount;
+    @JsonProperty("incomplete_results")
+    private Boolean incompleteResults;
+    @JsonProperty("items")
+    private List<Item> items = new ArrayList<Item>();
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
-     * @return The total
+     * @return The totalCount
      */
-    @JsonProperty("total")
-    public Integer getTotal() {
-        return total;
+    @JsonProperty("total_count")
+    public Integer getTotalCount() {
+        return totalCount;
     }
 
     /**
-     * @param total The total
+     * @param totalCount The total_count
      */
-    @JsonProperty("total")
-    public void setTotal(Integer total) {
-        this.total = total;
+    @JsonProperty("total_count")
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
     }
 
     /**
-     * @return The r
+     * @return The incompleteResults
      */
-    @JsonProperty("r")
-    public List<R> getR() {
-        return r;
+    @JsonProperty("incomplete_results")
+    public Boolean getIncompleteResults() {
+        return incompleteResults;
     }
 
     /**
-     * @param r The r
+     * @param incompleteResults The incomplete_results
      */
-    @JsonProperty("r")
-    public void setR(List<R> r) {
-        this.r = r;
+    @JsonProperty("incomplete_results")
+    public void setIncompleteResults(Boolean incompleteResults) {
+        this.incompleteResults = incompleteResults;
+    }
+
+    /**
+     * @return The items
+     */
+    @JsonProperty("items")
+    public List<Item> getItems() {
+        return items;
+    }
+
+    /**
+     * @param items The items
+     */
+    @JsonProperty("items")
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 
     @JsonAnyGetter
