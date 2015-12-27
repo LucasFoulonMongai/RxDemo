@@ -1,7 +1,5 @@
 package com.lfm.rxdemo.manager;
 
-import android.content.Context;
-
 import com.lfm.rxdemo.api.ApiService;
 import com.lfm.rxdemo.model.GetSearch;
 import com.lfm.rxdemo.util.Constants;
@@ -16,11 +14,9 @@ public class DataManager {
 
     private static DataManager instance;
 
-    private final Context context;
     private final ApiService apiService;
 
-    private DataManager(Context context) {
-        this.context = context;
+    private DataManager() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.URL_API)
                 .build();
@@ -28,9 +24,9 @@ public class DataManager {
         apiService = retrofit.create(ApiService.class);
     }
 
-    public static DataManager getInstance(Context context) {
+    public static DataManager getInstance() {
         if (instance == null) {
-            instance = new DataManager(context);
+            instance = new DataManager();
         }
         return instance;
     }
