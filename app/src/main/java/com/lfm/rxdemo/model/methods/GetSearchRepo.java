@@ -19,6 +19,7 @@ import java.util.Map;
         "incomplete_results",
         "items"
 })
+//http://www.jsonschema2pojo.org/
 public class GetSearchRepo {
 
     @JsonProperty("total_count")
