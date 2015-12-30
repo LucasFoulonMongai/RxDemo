@@ -4,7 +4,7 @@ import com.lfm.rxdemo.model.Repository;
 import com.lfm.rxdemo.model.User;
 
 /**
- * Created by mogwai on 27/12/2015.
+ * Created by Lucas Foulon on 27/12/2015.
  */
 public class RepoItemLight {
     private final Integer repoId;

@@ -7,36 +7,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.lfm.rvgenadapter.GenericRecyclerAdapter;
 import com.lfm.rxdemo.R;
-import com.lfm.rxdemo.model.light.RepoItemLight;
-import com.lfm.rxdemo.presenter.SearchPresenter;
-import com.lfm.rxdemo.presenter.contract.SearchContract;
+import com.lfm.rxdemo.presenter.InputPresenter;
+import com.lfm.rxdemo.presenter.contract.InputContract;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SearchFragment extends Fragment implements SearchContract {
+public class InputFragment extends Fragment implements InputContract {
 
-    @Bind(R.id.search_edit)
+    @Bind(R.id.input_edit)
     EditText searchEdit;
 
-    private SearchPresenter searchPresenter;
-    private GenericRecyclerAdapter<RepoItemLight> searchAdapter;
+    private InputPresenter inputPresenter;
 
-    public SearchFragment() {
+    public InputFragment() {
     }
 
-    public static SearchFragment newInstance() {
-        SearchFragment fragment = new SearchFragment();
-        return fragment;
+    public static InputFragment newInstance() {
+        return new InputFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_input, container, false);
         ButterKnife.bind(this, view);
         return view;
     }
@@ -44,18 +40,19 @@ public class SearchFragment extends Fragment implements SearchContract {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        searchPresenter = new SearchPresenter(this);
+
+        inputPresenter = new InputPresenter(this);
     }
 
-    @OnClick(R.id.search_button)
+    @OnClick(R.id.input_button)
     protected void searchButtonClick() {
-        searchPresenter.search(searchEdit.getText().toString());
+        inputPresenter.search(searchEdit.getText().toString());
     }
 
     @Override
     public void onDestroyView() {
-        if (searchPresenter != null) {
-            searchPresenter.unlink();
+        if (inputPresenter != null) {
+            inputPresenter.unlink();
         }
         ButterKnife.unbind(this);
         super.onDestroyView();

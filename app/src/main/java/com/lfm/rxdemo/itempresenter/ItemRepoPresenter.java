@@ -16,7 +16,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Created by mogwai on 27/12/2015.
+ * Created by Lucas Foulon on 27/12/2015.
  */
 public class ItemRepoPresenter extends ItemPresenter<RepoItemLight> {
 

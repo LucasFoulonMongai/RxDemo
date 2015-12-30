@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import rx.Subscription;
 
 /**
- * Created by mogwai on 27/12/2015.
+ * Created by Lucas Foulon on 27/12/2015.
  */
 public class ObserverLinker {
     private LinkedList<Subscription> subscriptions = new LinkedList<>();
