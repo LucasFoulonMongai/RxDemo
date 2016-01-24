@@ -6,12 +6,12 @@ import com.lfm.rxdemo.util.Constants;
 
 import retrofit.JacksonConverterFactory;
 import retrofit.Retrofit;
+import retrofit.RxJavaCallAdapterFactory;
 import rx.Observable;
-import rx.exceptions.OnErrorThrowable;
 import rx.subjects.PublishSubject;
 
 /**
- * Created by mogwai on 27/12/2015.
+ * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
  */
 public class SearchManager {
 
@@ -23,6 +23,7 @@ public class SearchManager {
     private SearchManager() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.URL_API)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
 
@@ -39,15 +40,11 @@ public class SearchManager {
     }
 
     public Observable<GetSearchRepo> getSearch(String search) {
-        return Observable.defer(() -> Observable.just(doOnlineGetSearch(search)));
+        return githubService.getSearch(search);
     }
 
-    private GetSearchRepo doOnlineGetSearch(String search) {
-        try {
-            return githubService.getSearch(search).execute().body();
-        } catch (Exception e) {
-            throw OnErrorThrowable.from(e);
-        }
+    public Observable<String> getObservableExample(String search) {
+        return Observable.defer(() -> Observable.just("exemple1", "exemple2"));
     }
 
     public Observable<String> getSearchField() {

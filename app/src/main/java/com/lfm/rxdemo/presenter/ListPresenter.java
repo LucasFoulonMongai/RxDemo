@@ -13,7 +13,7 @@ import java.util.List;
 import rx.Observer;
 
 /**
- * Created by mogwai on 27/12/2015.
+ * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
  */
 public class ListPresenter extends ObserverLinker {
 

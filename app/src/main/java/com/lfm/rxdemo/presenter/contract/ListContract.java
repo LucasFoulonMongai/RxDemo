@@ -5,7 +5,7 @@ import com.lfm.rxdemo.model.light.RepoItemLight;
 import java.util.List;
 
 /**
- * Created by mogwai on 27/12/2015.
+ * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
  */
 public interface ListContract {
 

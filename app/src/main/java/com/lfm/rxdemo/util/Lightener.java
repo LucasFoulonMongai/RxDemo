@@ -9,7 +9,7 @@ import java.util.List;
 import rx.functions.Func1;
 
 /**
- * Created by mogwai on 28/12/2015.
+ * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 28/12/2015.
  */
 public class Lightener {
     public static Func1<List<Repository>, List<RepoItemLight>> repoToLight() {
