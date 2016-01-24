@@ -1,9 +1,9 @@
 package com.lfm.rxdemo.presenter;
 
-import com.lfm.rxdemo.manager.SearchManager;
+import com.lfm.rxdemo.manager.SearchRxManager;
 import com.lfm.rxdemo.model.light.RepoItemLight;
 import com.lfm.rxdemo.model.methods.GetSearchRepo;
-import com.lfm.rxdemo.presenter.contract.ListContract;
+import com.lfm.rxdemo.presenter.contract.SearchListContract;
 import com.lfm.rxdemo.rxutils.ObserverLinker;
 import com.lfm.rxdemo.rxutils.RxComposer;
 import com.lfm.rxdemo.util.Lightener;
@@ -13,12 +13,12 @@ import java.util.List;
 import rx.Observer;
 
 /**
- * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
+ * Created by Lucas Foulon on 27/12/2015.
  */
-public class ListPresenter extends ObserverLinker {
+public class SearchListRxPresenter extends ObserverLinker {
 
-    private final ListContract viewContract;
-    private final SearchManager searchManager;
+    private final SearchListContract viewContract;
+    private final SearchRxManager searchRxManager;
     private final Observer<List<RepoItemLight>> observer = new Observer<List<RepoItemLight>>() {
         @Override
         public void onCompleted() {
@@ -39,12 +39,15 @@ public class ListPresenter extends ObserverLinker {
         }
     };
 
-    public ListPresenter(ListContract viewContract) {
+    public SearchListRxPresenter(SearchListContract viewContract) {
         this.viewContract = viewContract;
-        searchManager = SearchManager.getInstance();
+        searchRxManager = SearchRxManager.getInstance();
 
-        link(searchManager.getSearchField()
-                .flatMap(s -> searchManager.getSearch(s).compose(RxComposer.io()))
+        link(searchRxManager.getSearchField()
+                .flatMap(s -> {
+                    viewContract.showLoadingView(true);
+                    return searchRxManager.getSearch(s).compose(RxComposer.io());
+                })
                 .map(GetSearchRepo::getRepositories)
                 .map(Lightener.repoToLight())
                 .compose(RxComposer.io())

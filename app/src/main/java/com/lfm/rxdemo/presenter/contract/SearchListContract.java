@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
  */
-public interface ListContract {
+public interface SearchListContract {
 
     void showRepositoryList(List<RepoItemLight> repositoryList);
 
