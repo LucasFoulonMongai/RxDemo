@@ -5,7 +5,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by Lucas Foulon on 28/12/2015.
+ * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 28/12/2015.
  */
 public class RxComposer {
     public static <T> Observable.Transformer<T, T> io() {

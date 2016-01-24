@@ -5,7 +5,7 @@ import com.lfm.rxdemo.presenter.contract.InputContract;
 import com.lfm.rxdemo.rxutils.ObserverLinker;
 
 /**
- * Created by Lucas Foulon on 27/12/2015.
+ * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
  */
 public class InputPresenter extends ObserverLinker {
 

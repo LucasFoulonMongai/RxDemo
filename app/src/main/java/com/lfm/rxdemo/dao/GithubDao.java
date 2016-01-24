@@ -6,7 +6,8 @@ import com.lfm.rxdemo.util.Constants;
 
 import retrofit.JacksonConverterFactory;
 import retrofit.Retrofit;
-import rx.exceptions.OnErrorThrowable;
+import retrofit.RxJavaCallAdapterFactory;
+import rx.Observable;
 
 /**
  * Created by l.foulon on 30/12/15.
@@ -16,9 +17,10 @@ public class GithubDao {
     private static GithubDao instance;
     private final GithubService githubService;
 
-    private GithubDao(){
+    private GithubDao() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.URL_API)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
 
@@ -26,17 +28,13 @@ public class GithubDao {
     }
 
     public static GithubDao getInstance() {
-        if(instance == null){
+        if (instance == null) {
             instance = new GithubDao();
         }
         return instance;
     }
 
-    public GetSearchRepo doOnlineGetSearch(String search) {
-        try {
-            return githubService.getSearch(search).execute().body();
-        } catch (Exception e) {
-            throw OnErrorThrowable.from(e);
-        }
+    public Observable<GetSearchRepo> getOnlineSearch(String search) {
+        return githubService.getSearch(search);
     }
 }

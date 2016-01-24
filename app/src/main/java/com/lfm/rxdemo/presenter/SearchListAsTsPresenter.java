@@ -1,19 +1,13 @@
 package com.lfm.rxdemo.presenter;
 
 import com.lfm.rxdemo.manager.SearchAsTsManager;
-import com.lfm.rxdemo.model.light.RepoItemLight;
 import com.lfm.rxdemo.model.methods.GetSearchRepo;
 import com.lfm.rxdemo.presenter.contract.SearchListContract;
-import com.lfm.rxdemo.rxutils.RxComposer;
 import com.lfm.rxdemo.util.AsCallback;
 import com.lfm.rxdemo.util.Lightener;
 
-import java.util.List;
-
-import rx.Observer;
-
 /**
- * Created by Lucas Foulon on 27/12/2015.
+ * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
  */
 public class SearchListAsTsPresenter {
 

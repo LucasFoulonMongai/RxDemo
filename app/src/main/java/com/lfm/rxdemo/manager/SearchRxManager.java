@@ -1,19 +1,13 @@
 package com.lfm.rxdemo.manager;
 
-import com.lfm.rxdemo.api.GithubService;
 import com.lfm.rxdemo.dao.GithubDao;
 import com.lfm.rxdemo.model.methods.GetSearchRepo;
-import com.lfm.rxdemo.util.Constants;
 
-import retrofit.JacksonConverterFactory;
-import retrofit.Retrofit;
 import rx.Observable;
-import rx.exceptions.OnErrorThrowable;
-import rx.functions.Func0;
 import rx.subjects.PublishSubject;
 
 /**
- * Created by Lucas Foulon on 27/12/2015.
+ * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
  */
 public class SearchRxManager {
 
@@ -35,7 +29,16 @@ public class SearchRxManager {
     }
 
     public Observable<GetSearchRepo> getSearch(String search) {
-        return Observable.defer(() -> Observable.just(githubDao.doOnlineGetSearch(search)));
+        //This is typically the place where you want to combine your observable to add :
+        //-Cache management (load & save)
+        //-Network strategy (retry on failure, reconnection)
+        //-Side effect (notify some subjects)
+        //-etc
+        return githubDao.getOnlineSearch(search);
+    }
+
+    public Observable<String> getObservableExample(String search) {
+        return Observable.defer(() -> Observable.just("exemple1", "exemple2"));
     }
 
     public Observable<String> getSearchField() {
