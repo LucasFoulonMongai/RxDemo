@@ -20,7 +20,7 @@ import java.util.Map;
         "items"
 })
 //http://www.jsonschema2pojo.org/
-public class GetSearchRepo {
+public class GetSearchRepos {
 
     @JsonProperty("total_count")
     private Integer totalCount;

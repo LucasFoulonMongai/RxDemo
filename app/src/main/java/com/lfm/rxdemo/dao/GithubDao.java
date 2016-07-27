@@ -1,7 +1,7 @@
 package com.lfm.rxdemo.dao;
 
 import com.lfm.rxdemo.api.GithubService;
-import com.lfm.rxdemo.model.methods.GetSearchRepo;
+import com.lfm.rxdemo.model.methods.GetSearchRepos;
 import com.lfm.rxdemo.util.Constants;
 
 import retrofit.JacksonConverterFactory;
@@ -34,7 +34,7 @@ public class GithubDao {
         return instance;
     }
 
-    public Observable<GetSearchRepo> getOnlineSearch(String search) {
-        return githubService.getSearch(search);
+    public Observable<GetSearchRepos> getOnlineSearch(String searchField) {
+        return githubService.getSearch(searchField);
     }
 }

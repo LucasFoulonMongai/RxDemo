@@ -1,7 +1,7 @@
 package com.lfm.rxdemo.manager;
 
 import com.lfm.rxdemo.dao.GithubDao;
-import com.lfm.rxdemo.model.methods.GetSearchRepo;
+import com.lfm.rxdemo.model.methods.GetSearchRepos;
 
 import rx.Observable;
 import rx.subjects.PublishSubject;
@@ -9,26 +9,26 @@ import rx.subjects.PublishSubject;
 /**
  * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
  */
-public class SearchRxManager {
+public class SearchManager {
 
-    private static SearchRxManager instance;
+    private static SearchManager instance;
 
     private final GithubDao githubDao;
     private final PublishSubject<String> searchFieldSubject;
 
-    private SearchRxManager() {
+    private SearchManager() {
         githubDao = GithubDao.getInstance();
         searchFieldSubject = PublishSubject.create();
     }
 
-    public static SearchRxManager getInstance() {
+    public static SearchManager getInstance() {
         if (instance == null) {
-            instance = new SearchRxManager();
+            instance = new SearchManager();
         }
         return instance;
     }
 
-    public Observable<GetSearchRepo> getSearch(String search) {
+    public Observable<GetSearchRepos> getSearch(String search) {
         //This is typically the place where you want to combine your observable to add :
         //-Cache management (load & save)
         //-Network strategy (retry on failure, reconnection)
@@ -37,11 +37,7 @@ public class SearchRxManager {
         return githubDao.getOnlineSearch(search);
     }
 
-    public Observable<String> getObservableExample(String search) {
-        return Observable.defer(() -> Observable.just("exemple1", "exemple2"));
-    }
-
-    public Observable<String> getSearchField() {
+    public Observable<String> getSearchFieldSubject() {
         return searchFieldSubject;
     }
 

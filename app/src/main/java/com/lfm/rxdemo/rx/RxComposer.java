@@ -1,4 +1,4 @@
-package com.lfm.rxdemo.rxutils;
+package com.lfm.rxdemo.rx;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -8,14 +8,27 @@ import rx.schedulers.Schedulers;
  * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 28/12/2015.
  */
 public class RxComposer {
-    public static <T> Observable.Transformer<T, T> io() {
+
+    public static <T> Observable.Transformer<T, T> subscribe_io() {
+        return observable -> observable
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io());
+    }
+
+    public static <T> Observable.Transformer<T, T> subscribe_thread() {
+        return observable -> observable
+                .subscribeOn(Schedulers.newThread())
+                .unsubscribeOn(Schedulers.newThread());
+    }
+
+    public static <T> Observable.Transformer<T, T> io_2_main() {
         return observable -> observable
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public static <T> Observable.Transformer<T, T> newThread() {
+    public static <T> Observable.Transformer<T, T> thread_2_main() {
         return observable -> observable
                 .subscribeOn(Schedulers.newThread())
                 .unsubscribeOn(Schedulers.newThread())

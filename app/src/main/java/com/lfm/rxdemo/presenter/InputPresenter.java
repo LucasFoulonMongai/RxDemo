@@ -1,23 +1,20 @@
 package com.lfm.rxdemo.presenter;
 
-import com.lfm.rxdemo.manager.SearchRxManager;
-import com.lfm.rxdemo.presenter.contract.InputContract;
-import com.lfm.rxdemo.rxutils.ObserverLinker;
+import com.lfm.rxdemo.manager.SearchManager;
+import com.lfm.rxdemo.rx.Presenter;
 
 /**
  * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
  */
-public class InputPresenter extends ObserverLinker {
+public class InputPresenter extends Presenter {
 
-    private final InputContract viewContract;
-    private final SearchRxManager searchRxManager;
+    private final SearchManager searchManager;
 
-    public InputPresenter(InputContract viewContract) {
-        this.viewContract = viewContract;
-        searchRxManager = SearchRxManager.getInstance();
+    public InputPresenter() {
+        searchManager = SearchManager.getInstance();
     }
 
     public void search(String search) {
-        searchRxManager.publishSearchField(search);
+        searchManager.publishSearchField(search);
     }
 }

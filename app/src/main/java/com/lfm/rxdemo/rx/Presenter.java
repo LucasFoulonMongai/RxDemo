@@ -1,4 +1,4 @@
-package com.lfm.rxdemo.rxutils;
+package com.lfm.rxdemo.rx;
 
 
 import java.util.LinkedList;
@@ -6,9 +6,9 @@ import java.util.LinkedList;
 import rx.Subscription;
 
 /**
- * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
+ * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 28/02/2016.
  */
-public class ObserverLinker {
+public class Presenter {
     private LinkedList<Subscription> subscriptions = new LinkedList<>();
 
     public void link(Subscription subscription) {
@@ -20,5 +20,21 @@ public class ObserverLinker {
             subscription.unsubscribe();
         }
         subscriptions.clear();
+    }
+
+    public void start() {
+    }
+
+    public void resume() {
+    }
+
+    public void pause() {
+    }
+
+    public void stop() {
+    }
+
+    public void destroy() {
+        unlink();
     }
 }

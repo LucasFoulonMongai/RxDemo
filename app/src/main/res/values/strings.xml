@@ -5,4 +5,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search">Search</string>
     <string name="search_button">Search</string>
+    <string name="something_didn_t_worked">Something didn\'t worked :/</string>
 </resources>

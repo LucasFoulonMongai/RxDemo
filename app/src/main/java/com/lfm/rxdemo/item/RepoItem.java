@@ -1,4 +1,4 @@
-package com.lfm.rxdemo.itempresenter;
+package com.lfm.rxdemo.item;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Lucas FOULON-MONGAÏ, github.com/LucasFoulonMongai on 27/12/2015.
  */
-public class ItemRepoPresenter extends ItemPresenter<RepoItemLight> {
+public class RepoItem extends ItemPresenter<RepoItemLight> {
 
     @Bind(R.id.owner_avatar)
     ImageView ownerAvatar;
@@ -34,7 +34,6 @@ public class ItemRepoPresenter extends ItemPresenter<RepoItemLight> {
     public void initViewPresenter(Context context, ViewGroup parent, Bundle params, View.OnClickListener onClickListener) {
         this.view = LayoutInflater.from(context).inflate(R.layout.item_repo, parent, false);
         ButterKnife.bind(this, view);
-
         view.setOnClickListener(onClickListener);
     }
 
@@ -59,6 +58,7 @@ public class ItemRepoPresenter extends ItemPresenter<RepoItemLight> {
             view.setVisibility(View.GONE);
             return;
         }
+
         repoName.setText(data.getRepoName());
         repoUrl.setText(data.getRepoUrl());
         ownerName.setText(data.getOwerName());
